@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq1onq2io4hl"]
+
+[ext_resource type="Script" path="res://scenes/you_win.gd" id="1_3hq5m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igj8l"]
+bg_color = Color(0.246561, 0.65687, 0.780465, 1)
+
+[node name="YouWin" type="CanvasLayer"]
+script = ExtResource("1_3hq5m")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1112.0
+offset_bottom = 608.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_igj8l")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 80
+text = "You Win"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+
+[node name="Row2" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " Restart  "
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Row2/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Row2/QuitButton" to="." method="_on_quit_button_pressed"]

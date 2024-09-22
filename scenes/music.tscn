@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu61tmw2d3km1"]
+
+[ext_resource type="AudioStream" uid="uid://dy4833hs4dmv2" path="res://assets/Audio/08-Bittersweet Village Theme.wav" id="1_c6d85"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_c6d85")
+volume_db = 1.874
+autoplay = true
+bus = &"Music"

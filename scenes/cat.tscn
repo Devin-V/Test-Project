@@ -154,21 +154,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh3bo"]
 size = Vector2(13, 10)
 
 [node name="cat" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_vbc6n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_6r6h8")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.779467
+frame_progress = 0.464469
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -7)

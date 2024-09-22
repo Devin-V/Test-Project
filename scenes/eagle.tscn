@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bx4gbhxjypolu"]
+
+[ext_resource type="Texture2D" uid="uid://ccy0y70qbsene" path="res://assets/Eagle/eagle-attack.png" id="1_24ix0"]
+[ext_resource type="PackedScene" uid="uid://dfvxd3kkm3gd" path="res://scenes/killzone.tscn" id="2_mpb7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfje7"]
+atlas = ExtResource("1_24ix0")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2506c"]
+atlas = ExtResource("1_24ix0")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vwkx"]
+atlas = ExtResource("1_24ix0")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy66k"]
+atlas = ExtResource("1_24ix0")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbo5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfje7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2506c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vwkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy66k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp4mi"]
+size = Vector2(16, 28)
+
+[node name="Eagle" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bbo5k")
+autoplay = "default"
+frame_progress = 0.471833
+
+[node name="Killzone" parent="." instance=ExtResource("2_mpb7n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-9, 3)
+shape = SubResource("RectangleShape2D_lp4mi")
